@@ -1,0 +1,121 @@
+1. Write a program in Python to allow the error of syntax to be handled using exception handling. HINT: Use SyntaxError
+
+try:
+    x = range(1,100,0.1)
+except TypeError:
+    print("Oops! Type Error ")
+
+
+
+2. Write a program in Python to allow the user to open a file by using the argv module. If the entered name is incorrect throw an exception and ask them to enter the name again. Make sure to use read only
+mode.
+import sys
+try :
+    with open(sys.argv[1], 'r') as f:
+        contents = f.read()
+    print contents
+except Exception:
+    print("Oops! Read Error ")
+
+
+   pyhon program.py a.txt
+
+
+3. Write a program to handle an error if the user entered a number more than four digits it should return “The length is too short/long !!! Please provide only four digits”
+
+try:
+    x = int(input("Please enter a number: "))
+    if(len(str(x)) > 4):
+        raise Exception
+    print("Your Number is " , x)
+except Exception:
+    print("Oops! Number is too long , Please enter a number less than 4 digits")
+
+4. Create a login page backend to ask users to enter the username and password. Make sure to ask for a Re-Type Password and if the password is incorrect give chance to enter it again but it should not be more than 3 times.
+
+
+password = "Nirav"
+
+def match(str):
+      return password==str
+
+def authorize():
+    attempts=0;
+    while(attempts<3):
+        x = input("Please enter a your password : ")
+        attempts=attempts+1
+        if(match(x)):
+            return print ("Logged in Successfully")
+        if(attempts!=3):
+            print("Oops Try Again")
+    return print("Too many wrong attempts ! Please wait for 5 min")
+
+authorize();
+
+
+
+5. Go through the link provided below to understand finally and raise concept: https://www.programiz.com/python-programming/exception-handling
+
+
+
+6. Read doc.txt file using Python File handling concept and return only the even length string from the file. Consider the content of doc.txt as given below:
+
+
+Hello I am a file
+Where you need to return the data string
+Which is of even length
+Make sure you return the content in The same link as it is present.
+
+import sys
+try :
+    with open(sys.argv[1], 'r') as f:
+        contents = f.read()
+    for x in contents.replace("\\r\\n", " ").split():
+        if(len(x)%2==0):
+            print(x + " "  + str(len(x)))
+except Exception as e:
+    print("Oops! Read Error " , e)
+
+Task6:
+TASK SIX GENERATORS, LIST COMPREHENSION AND DECORATORS
+
+
+1. Write a program in Python to find out the character in a string which is uppercase using list comprehension.
+
+def extractUpperCase(ls):
+    return [x for x in ls if x.isupper()]
+
+print(extractUpperCase("abcABC"))
+
+
+2. Write a program to construct a dictionary from the two lists containing the names of students and their corresponding subjects. The dictionary should map the students with their respective subjects. Let’s see how to do this using for loops and dictionary comprehension.
+
+
+
+HINT - Use Zip function also
+
+Sample input: students = ['Smit', 'Jaya', 'Rayyan'] subjects = ['CSE', 'Networking', 'Operating System'] Expected output: {‘Smit’ : ’CSE’ , ’Jaya’ : ’Networking’ , ’Rayyan’ : ’Operating System’}
+
+students = ['Smit', 'Jaya', 'Rayyan']
+subjects = ['CSE', 'Networking', 'Operating System']
+
+print(dict(zip(students,subjects)))
+
+
+
+4. Write a program in Python using generators to reverse the string.
+
+def rev_str(my_str):
+    length = len(my_str)
+    for i in range(length - 1, -1, -1):
+        yield my_str[i]
+
+
+# For loop to reverse the string
+for char in rev_str("hello"):
+    print(char)
+
+
+Input String = “Consultadd Training” 
+
+5. Write an example on decorators.
